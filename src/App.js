@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -7,7 +6,7 @@ function App() {
       <h1>Weather App</h1>
       <footer>
         This project was coded by Khanyi {" "}
-      <a href='https://github.com/Khanyi2/react-weather-app2.0' target='_blank'> and open-sourced on GitHub</a>
+      <a href='https://github.com/Khanyi2/react-weather-app2.0' target='_blank' rel="noreferrer"> and open-sourced on GitHub</a>
       </footer>
     </div>
   );
