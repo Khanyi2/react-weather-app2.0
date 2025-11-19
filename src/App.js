@@ -3,6 +3,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <div className="container">
       <h1>Weather App</h1>
       <footer>
         This project was coded by Khanyi {" "}
@@ -10,6 +11,7 @@ function App() {
       and {" "}
       <a href='https://imozuluyereact.netlify.app' target='_blank' rel="noreferrer">Hosted on Netlify</a>
       </footer>
+      </div>
     </div>
   );
 }
