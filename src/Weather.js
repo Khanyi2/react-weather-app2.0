@@ -32,10 +32,10 @@ export default function Weather() {
                 </div>
                 </div>
             </form>
-            <h1>weatherData.city</h1>
+        <h1>{weatherData.city}</h1>
             <ul>
                 <li>Monday 10:00</li>
-                <li>weatherData.description</li>  
+                <li>{weatherData.description}</li>  
             </ul>
 
             <div className="row">
