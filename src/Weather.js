@@ -21,13 +21,17 @@ export default function Weather(props) {
             description: response.data.condition.description,
             date: new Date (response.data.time * 1000),
         });
-        //setReady(true);
     }
+
+    function search(){
+    const apiKey = "d0o3t764a6d83cea9c0bfd4fda2bd33e";
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);}
 
     function handleSubmit(event){
         event.preventDefault();
-        alert(`Searching for ${city}`);
-        //search for a city
+        search();
+        
     }
 
     function handleCityChange(event){
@@ -53,11 +57,7 @@ export default function Weather(props) {
         </div>
         );
     } else {
-
-    const apiKey = "d0o3t764a6d83cea9c0bfd4fda2bd33e";
-    //let city = "New York";
-    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+    search();
     return "Loading...";
     }
     
