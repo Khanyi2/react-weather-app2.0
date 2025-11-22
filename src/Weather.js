@@ -38,10 +38,6 @@ export default function Weather(props) {
         setCity(event.target.value);
     }
 
-    // useEffect(() => {
-    //     search();
-    // }, []);
-
 
     if (weatherData.ready) {
     return (
