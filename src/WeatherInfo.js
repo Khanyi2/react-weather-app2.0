@@ -1,9 +1,10 @@
-import react from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
+    const data = props.data;
+
   return (
     <div className="WeatherInfo">
       <h1>{props.data.city}</h1>
@@ -12,26 +13,21 @@ export default function WeatherInfo(props) {
         <li>
           <FormattedDate date={props.data.date} />
         </li>
-        <li className="text-capitalized">{props.data.description}</li>
+        <li className="text-capitalized">{data.description}</li>
       </ul>
 
       <div className="row mt-3">
-        <div className="col-6">
-        <div className="d-flex">
-            <div>
-            <WeatherIcon code={props.data.icon} size={64} />
-            </div>
+        {/*ICON + TEMPERATURE*/}
+        <div className="col-6 d-flex align-items-center">
+            <WeatherIcon code={data.icon} size={64} />
+            <div className="ms-3">
+                 <WeatherTemperature celsius={data.temperature} />
+            </div>     
+        </div>
          
 
-      <div className="row">
-        <div className="col-9 d-flex align-items-center">
-          <div className="ms-2">
-            <WeatherTemperature celsius={props.data.temperature} />
-            
-          </div>
-        </div>
-
-        <div className="col-3">
+        {/*DETAILS*/}
+        <div className="col-6">
           <ul>
             <li>Precipitation: 10%</li>
             <li>Humidity: {props.data.humidity}%</li>
@@ -39,9 +35,6 @@ export default function WeatherInfo(props) {
           </ul>
         </div>
       </div>
-    </div>
-    </div>
-    </div>
     </div>
     
   );

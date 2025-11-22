@@ -1,6 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
-import { useState } from "react";
 import './Weather.css';
 import WeatherInfo from "./WeatherInfo";
 
@@ -9,8 +8,8 @@ export default function Weather(props) {
     const [weatherData, setWeatherData] =useState({ready: false});
     const [city, setCity] = useState(props.defaultCity);
 
+    //Handles the response from the API
     function handleResponse(response){
-        
         console.log(response.data);
         setWeatherData({
             ready: true,
@@ -39,8 +38,15 @@ export default function Weather(props) {
         setCity(event.target.value);
     }
 
+    useEffect(() => {
+        search();
+    }, []);
+
 
     if (weatherData.ready){
+        return <div>Loading ...</div>;
+    }
+    
         return(
         <div className="Weather">
             <form onSubmit={handleSubmit}>
@@ -57,9 +63,5 @@ export default function Weather(props) {
         <WeatherInfo data={weatherData}/>    
         </div>
         );
-    } else {
-    search();
-    return "Loading...";
-    }
     
 }
